@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +20,7 @@
     <h1>
         This is the home
     </h1>
+    <?php if(!isset($_SESSION['email'])): ?>
     <button value="register">
     <a href="administrations/Register.php">Register</a>
     </button>
@@ -24,8 +28,17 @@
         <a href="administrations/Login.php">Log in</a>
     </button>
     <br>
+    <?php endif; ?>
+    <?php if(isset($_SESSION['email'])): ?>
     <button>
         <a href="administrations/Delete.php">Delete</a>
     </button>
+    <button>
+        <a href="administrations/Dashboard.php">Dashoard</a>
+    </button>
+    <button>
+        <a href="administrations/Logout.php">Log out</a>
+    </button>
+    <?php endif ?>
 </body>
 </html>

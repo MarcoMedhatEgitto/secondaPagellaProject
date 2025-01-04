@@ -20,7 +20,9 @@ if($output == null){
     echo "Your email doesn't exist in the database!";
 }
 else if(password_verify($user_pssword, $output[0]['user_password'])){
-    echo "Welcome in your account";
+    session_start();
+    $_SESSION['email'] = $email;
+    header("Location: Dashboard.php");
 }
 else{
     echo "You have entered a wrong password!";
