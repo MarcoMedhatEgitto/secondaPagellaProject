@@ -6,3 +6,4 @@ CREATE TABLE doctor (
   email varchar(50) NOT NULL,
   gender enum('male','female') NOT NULL DEFAULT 'male'
 )
+-- adding comment to switch branch
