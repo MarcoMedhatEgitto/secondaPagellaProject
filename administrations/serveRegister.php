@@ -1,9 +1,6 @@
 <?php
 // initialize the connection to the database and check if there are errors 
-$db_connection = mysqli_connect('localhost','root','','health_center',3306);
-if(!$db_connection){
-    echo "Connection error ". mysqli_connect_error();
-}
+include 'db_connection.php';
 
 // save the input from the form into the db
 if(isset($_POST['submit'])){

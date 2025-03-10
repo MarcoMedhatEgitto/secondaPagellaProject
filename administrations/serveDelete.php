@@ -1,9 +1,7 @@
 <?php
+include 'db_connection.php';
+
 if(isset($_POST['submit'])){
-    $db_connection = mysqli_connect('localhost','root','','health_center',3306);
-    if(!$db_connection){
-        echo "Connection error ". mysqli_connect_error();
-    }
     
     $email = $_POST['email'];
     $user_pssword = $_POST['user_password'];
@@ -16,8 +14,9 @@ if(isset($_POST['submit'])){
    else{
     echo "not found";
    }
-    mysqli_close($db_connection);
     
     
     }
+    mysqli_close($db_connection);
+
 ?>
