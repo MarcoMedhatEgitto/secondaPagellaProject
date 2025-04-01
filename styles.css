@@ -1,0 +1,182 @@
+/* --- Color Variables for Red & Blue Shiny Theme --- */
+:root {
+  --bg-color: #fff0f0;
+  --text-color: #222;
+  --accent-color: #ff0000;          /* vivid red */
+  --secondary-color: #0000ff;       /* vivid blue */
+  --nav-bg: linear-gradient(135deg, #ff4d4d, #4d4dff);
+  --link-color: #ff0000;
+  --container-bg: #ffffff;
+  --table-border: #ddd;
+}
+
+/* Dark Mode Overrides */
+.dark-mode {
+  --bg-color: #1a1a1a;
+  --text-color: #e0e0e0;
+  --accent-color: #ff6666;
+  --secondary-color: #6666ff;
+  --nav-bg: linear-gradient(135deg, #b30000, #000099);
+  --link-color: #ff6666;
+  --container-bg: #262626;
+  --table-border: #555;
+}
+
+/* Light Mode (explicit, if desired) */
+.light-mode {
+  --bg-color: #fff0f0;
+  --text-color: #222;
+  --accent-color: #ff0000;
+  --secondary-color: #0000ff;
+  --nav-bg: linear-gradient(135deg, #ff4d4d, #4d4dff);
+  --link-color: #ff0000;
+  --container-bg: #ffffff;
+  --table-border: #ddd;
+}
+
+/* Global Styles */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* --- Header / Navigation --- */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--nav-bg);
+  color: var(--text-color);
+  padding: 10px 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.site-header .logo h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.main-nav {
+  display: flex;
+  gap: 20px;
+}
+
+.main-nav a {
+  color: var(--text-color);
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+  color: var(--link-color);
+}
+
+/* Dark mode toggle inside nav */
+.nav-toggle {
+  display: flex;
+  align-items: center;
+}
+
+/* --- Mode Toggle Styles --- */
+.mode-toggle {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.mode-toggle input {
+  display: none;
+}
+
+.mode-toggle .slider {
+  width: 50px;
+  height: 25px;
+  background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+  border-radius: 50px;
+  position: relative;
+  transition: background 0.3s ease;
+  margin-right: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+}
+
+.mode-toggle .slider::before {
+  content: "";
+  position: absolute;
+  width: 21px;
+  height: 21px;
+  left: 2px;
+  top: 2px;
+  background-color: var(--container-bg);
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.mode-toggle input:checked + .slider::before {
+  transform: translateX(25px);
+}
+
+/* --- Main Container --- */
+.container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: var(--container-bg);
+}
+
+/* --- Section Styling --- */
+.section {
+  margin-bottom: 40px;
+}
+
+.section h2 {
+  text-align: center;
+  color: var(--accent-color);
+  margin-bottom: 20px;
+}
+
+/* --- Table Styling --- */
+.table-container {
+  overflow-x: auto;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+table, th, td {
+  border: 1px solid var(--table-border);
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background-color: var(--accent-color);
+  color: #fff;
+}
+
+tr:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+/* --- Footer --- */
+.site-footer {
+  background: var(--nav-bg);
+  color: var(--text-color);
+  text-align: center;
+  padding: 15px 20px;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.3);
+}
