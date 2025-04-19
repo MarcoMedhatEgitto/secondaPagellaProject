@@ -4,10 +4,36 @@ session_start();
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <title>Health Center!</title>
   <meta charset="UTF-8">
   <title>Professional Digital PT Clinic</title>
   <link rel="stylesheet" href="styles.css">
 </head>
+<body>
+    <h1>
+        This is the home
+    </h1>
+    <?php if(!isset($_SESSION['email'])): ?>
+    <button value="register">
+    <a href="administrations/Register.php">Register</a>
+    </button>
+    <button>
+        <a href="administrations/Login.php">Log in</a>
+    </button>
+    <br>
+    <?php endif; ?>
+    <?php if(isset($_SESSION['email'])): ?>
+    <button>
+        <a href="administrations/Delete.php">Delete</a>
+    </button>
+    <button>
+        <a href="administrations/Dashboard.php">Dashoard</a>
+    </button>
+    <button>
+        <a href="administrations/Logout.php">Log out</a>
+    </button>
+    <?php endif ?>
 <body class="light-mode">
   <!-- Top Navigation Bar -->
   <header class="site-header">
@@ -171,4 +197,5 @@ session_start();
     });
   </script>
 </body>
+</html>
 </html>
