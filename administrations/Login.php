@@ -3,14 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
+    <link rel="stylesheet" href="/secondaPagellaProject/styles.css">
 </head>
 <body>
-    <form action="serveLogin.php" method="post">
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email">
-        <label for="user_password">Password</label>
-        <input type="password" name="user_password" id="user_password">
-        <input type="submit" value="submit" name="submit">
-    </form>
+    <div class="container">
+        <h2>Admin Login</h2>
+        <form action="serveLogin.php" method="post">
+            <label for="username">Username</label><br>
+            <input type="text" id="username" name="username" required><br><br>
+
+            <label for="password">Password</label><br>
+            <input type="password" id="password" name="password" required><br><br>
+
+            <input type="submit" value="Login" class="btn">
+        </form>
+        
+        <?php
+        if (isset($_GET['error'])) {
+            echo "<p class='error'>" . htmlspecialchars($_GET['error']) . "</p>";
+        }
+        ?>
+    </div>
 </body>
 </html>

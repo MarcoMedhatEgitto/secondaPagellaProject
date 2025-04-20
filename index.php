@@ -6,13 +6,11 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <title>Health Center!</title>
-  <meta charset="UTF-8">
-  <title>Professional Digital PT Clinic</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
+    <link rel="stylesheet" href="/secondaPagellaProject/styles.css">
+  </head>
 <body>
     <h1>
-        This is the home
+        Welcome to our online clinic
     </h1>
     <?php if(!isset($_SESSION['email'])): ?>
     <button value="register">
