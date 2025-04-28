@@ -29,15 +29,27 @@ session_start();
     </button>
     <br>
     <?php endif; ?>
-    <?php if(isset($_SESSION['email'])): ?>
-    <button>
-        <a href="administrations/Delete.php">Delete</a>
-    </button>
+    <?php if(isset($_SESSION['email']) && $_SESSION['rule']=='user'): ?>
     <button>
         <a href="administrations/Dashboard.php">Dashoard</a>
     </button>
     <button>
         <a href="administrations/Logout.php">Log out</a>
+    </button>
+    <?php endif ?>
+    
+    <?php if(isset($_SESSION['email']) && $_SESSION['rule']=='admin'): ?>
+    <button>
+        <a href="administrations/Delete.php">Delete</a>
+    </button>    
+    <button>
+        <a href="administrations/Dashboard.php">Dashoard</a>
+    </button>
+    <button>
+        <a href="administrations/Logout.php">Log out</a>
+    </button>
+    <button>
+        <a href="administrations/Promote">Promote a user</a>
     </button>
     <?php endif ?>
 </body>

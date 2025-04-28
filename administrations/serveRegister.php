@@ -10,7 +10,7 @@ if(isset($_POST['submit'])){
     $password = mysqli_real_escape_string($db_connection,password_hash($_POST['password'],PASSWORD_DEFAULT));
     $gender = mysqli_real_escape_string($db_connection, $_POST['gender']);
 
-    $query = "INSERT INTO doctor(id, name, user_password, email, gender) VALUES ('','$name','$password','$email','$gender')";
+    $query = "INSERT INTO user_data(id, name, user_password, email, gender, rule) VALUES ('','$name','$password','$email','$gender','user')";
 
     if(mysqli_query($db_connection,$query)){
         echo "success";
@@ -22,14 +22,14 @@ if(isset($_POST['submit'])){
 
 
 
-// creating a query to get all the elements in the table doctors
-$query = 'SELECT * FROM doctor';
+// creating a query to get all the elements in the table user_datas
+$query = 'SELECT * FROM user_data';
 
 // send the query and get the results
 $output = mysqli_query($db_connection,$query);
 
 // Fetch results to an array
-$doctors = mysqli_fetch_all($output, MYSQLI_ASSOC);
+$user_datas = mysqli_fetch_all($output, MYSQLI_ASSOC);
 
 // free space
 mysqli_free_result($output);
@@ -38,7 +38,7 @@ mysqli_free_result($output);
 mysqli_close($db_connection);
 
 
-// print_r($doctors);
+// print_r($user_datas);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,7 +48,7 @@ mysqli_close($db_connection);
 </head>
 <body>
 <h1>
-Doctors!
+users
 </h1>
 <table border="1">
     <tr>
@@ -56,21 +56,21 @@ Doctors!
         <td>Email</td>
         <td>Gender</td>
     </tr>
-    <?php foreach ($doctors as $doctor){?>
+    <?php foreach ($user_datas as $user_data){?>
     <tr>
         <td>
             <?php
-            echo htmlspecialchars($doctor['name']);
+            echo htmlspecialchars($user_data['name']);
             ?>
         </td>
         <td>
             <?php
-            echo htmlspecialchars($doctor['email']);
+            echo htmlspecialchars($user_data['email']);
             ?>
         </td>
         <td>    
         <?php
-            echo htmlspecialchars($doctor['gender']);
+            echo htmlspecialchars($user_data['gender']);
         ?>
         </td>
     </tr>

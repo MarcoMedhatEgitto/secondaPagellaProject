@@ -17,7 +17,7 @@ if(!isset($_SESSION['email']))
     <?php
       $db_connection = mysqli_connect('localhost','root','','health_center',3306);
       $email = $_SESSION['email'];
-      $query ="SELECT name FROM doctor WHERE email = '$email'" ;
+      $query ="SELECT name FROM user_data WHERE email = '$email'" ;
       $recieve = mysqli_query($db_connection,$query); 
       $output = mysqli_fetch_all($recieve, MYSQLI_ASSOC);
       mysqli_free_result($recieve);
