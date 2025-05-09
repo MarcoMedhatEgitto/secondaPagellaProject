@@ -1,20 +1,13 @@
 <?php
 include 'db_connection.php';
 
-if(isset($_POST['submit'])){
+if(isset($_GET['email'])){
     
-    $email = $_POST['email'];
+    $email = $_GET['email'];
     
     $query = "DELETE FROM user_data WHERE email = '$email'";
     $recieve = mysqli_query($db_connection,$query);
-    if(mysqli_affected_rows($db_connection)>0){
-        echo "done";
-    } 
-   else{
-    echo "not found";
-   }
-    
-    
+    header("Location: Delete.php");
     }
     mysqli_close($db_connection);
 

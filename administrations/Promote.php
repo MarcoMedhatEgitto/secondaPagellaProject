@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Delete</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promote</title>
 </head>
 <body>
-<?php
+    <?php
     session_start();
     $db_connection = mysqli_connect('localhost','root','','health_center',3306);
     $email = $_SESSION['email'];
@@ -25,7 +26,7 @@
           <td>Gender</td>
           <td>Email</td>
           <td>Rule</td>
-          <td>Delete</td>
+          <td>Promote/Lower</td>
       </tr>
       <?php foreach ($outputs as $output) {?>
           <tr>
@@ -34,8 +35,17 @@
               <td><?php echo $output["email"]?></td>
               <td><?php echo $output["rule"]?></td>
               <td><button>
-                <a href="serveDelete.php?email=<?php echo urldecode($output['email']);?>" style = "color:black; text-decoration: none">
-                    Delete
+                <a href="promoteLower.php?email=<?php echo urldecode($output['email']);?>
+                &rule=<?php echo urldecode($output['rule'])?>" style = "color:black; text-decoration: none">
+                    <?php 
+                    if($output['rule']=="admin")
+                    {
+                        echo "Lower";
+                    }
+                    else{
+                        echo "Promote";
+                    }
+                    ?>
                 </a>
             </button></td>
           </tr>

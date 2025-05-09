@@ -49,7 +49,7 @@ session_start();
         <a href="administrations/Logout.php">Log out</a>
     </button>
     <button>
-        <a href="administrations/Promote">Promote a user</a>
+        <a href="administrations/Promote.php">Promote a user</a>
     </button>
     <?php endif ?>
 </body>
