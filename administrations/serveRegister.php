@@ -19,64 +19,9 @@ if(isset($_POST['submit'])){
         echo "error: ".mysqli_error($db_connection);
     }
 }
-
-
-
-// creating a query to get all the elements in the table user_datas
-$query = 'SELECT * FROM user_data';
-
-// send the query and get the results
-$output = mysqli_query($db_connection,$query);
-
-// Fetch results to an array
-$user_datas = mysqli_fetch_all($output, MYSQLI_ASSOC);
-
-// free space
-mysqli_free_result($output);
-
-// close connection
-mysqli_close($db_connection);
-
-
-// print_r($user_datas);
+header("Location:Login.php")
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-</head>
-<body>
-<h1>
-users
-</h1>
-<table border="1">
-    <tr>
-        <td>Name</td>
-        <td>Email</td>
-        <td>Gender</td>
-    </tr>
-    <?php foreach ($user_datas as $user_data){?>
-    <tr>
-        <td>
-            <?php
-            echo htmlspecialchars($user_data['name']);
-            ?>
-        </td>
-        <td>
-            <?php
-            echo htmlspecialchars($user_data['email']);
-            ?>
-        </td>
-        <td>    
-        <?php
-            echo htmlspecialchars($user_data['gender']);
-        ?>
-        </td>
-    </tr>
-    <?php } ?>
-</table>
-    
+   
 </body>
 </html>
  

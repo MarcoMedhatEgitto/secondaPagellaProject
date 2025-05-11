@@ -10,3 +10,15 @@ CREATE TABLE doctor (
 
 ALTER TABLE doctor ADD COLUMN rule ENUM('user', 'doctor', 'admin') NOT NULL;
 ALTER TABLE doctor RENAME TO user_data;
+
+-- adding the riservations table
+CREATE TABLE riservation(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    user_data INT NOT NULL,
+    doctor_data INT NOT NULL,
+    payment BOOLEAN NOT NULL,
+    date_time DATETIME NOT NULL,
+    FOREIGN KEY (user_data) REFERENCES user_data(id),
+    FOREIGN KEY (doctor_data) REFERENCES user_data(id)
+    
+)
