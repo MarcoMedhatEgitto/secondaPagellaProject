@@ -8,7 +8,7 @@
 </head>
 <body class="light-mode">
    
-  <!-- Dark/Light Mode Toggle -->
+<!-- Dark/Light Mode Toggle -->
 <label class="mode-toggle">
   <input type="checkbox" id="modeSwitch">
   <span class="slider"></span>
