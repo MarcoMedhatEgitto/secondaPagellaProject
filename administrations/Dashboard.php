@@ -11,13 +11,7 @@ if(!isset($_SESSION['email']))
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-<<<<<<< Updated upstream
     <link rel="stylesheet" href="/secondaPagellaProject/styles.css">
-=======
-    <link rel="stylesheet" href="/SecondaPagellProject/styles.css">
-
-
->>>>>>> Stashed changes
 </head>
 <body>
     <h1>

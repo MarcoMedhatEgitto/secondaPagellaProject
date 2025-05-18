@@ -3,11 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Delete</title>
-<<<<<<< Updated upstream
     <link rel="stylesheet" href="/secondaPagellaProject/styles.css">
-=======
-    <link rel="stylesheet" href="/SecondaPagellProject/styles.css">
->>>>>>> Stashed changes
 </head>
 <body>
     <form action="serveDelete.php" method="post">
