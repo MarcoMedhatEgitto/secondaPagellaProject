@@ -111,35 +111,35 @@
         $recieve = mysqli_query($db_connection, $query);
         $outputs = mysqli_fetch_all($recieve, MYSQLI_ASSOC);
 
-        if($outputs != null) {
-            echo "<table>
+        if($outputs != null) {?>
+             <table>
                     <tr>
                         <th>Name</th>
                         <th>Gender</th>
                         <th>Email</th>
                         <th>Role</th>
                         <th>Action</th>
-                    </tr>";
+                    </tr>
 
-            foreach ($outputs as $output) {
-                $action = $output['rule'] == 'doctor' ? 'Demote' : 'Promote';
-                echo "<tr>
-                        <td>" . htmlspecialchars($output["name"]) . "</td>
-                        <td>" . htmlspecialchars($output["gender"]) . "</td>
-                        <td>" . htmlspecialchars($output["email"]) . "</td>
-                        <td>" . htmlspecialchars($output["rule"]) . "</td>
+    <?php       foreach ($outputs as $output) {
+                $action = $output['rule'] == 'doctor' ? 'Demote' : 'Promote'?> 
+                <tr>
+                        <td><?php echo htmlspecialchars($output["name"]) ?></td>
+                        <td><?php echo htmlspecialchars($output["gender"]) ?></td>
+                        <td><?php echo htmlspecialchars($output["email"]) ?></td>
+                        <td><?php echo htmlspecialchars($output["rule"]) ?></td>
                         <td>
-                            <a class='action-btn' href='promoteLower.php?email=" . urlencode($output['email']) . "&rule=" . urlencode($output['rule']) . "'>
-                                $action
+                            <a class='action-btn' href='promoteLower.php?email=<?php echo urlencode($output["email"]); ?>&rule=<?php echo urlencode($output["rule"]); ?>'>
+                                <?php echo $action ?>
                             </a>
                         </td>
-                    </tr>";
-            }
+                    </tr>
+           <?php } ?>
 
-            echo "</table>";
-        } else {
-            echo "<p>There are no normal users registered in the system.</p>";
-        }
+            </table>
+       <?php } else { ?>
+            <p>There are no normal users registered in the system.</p>
+       <?php }
 
         mysqli_free_result($recieve);
     }

@@ -92,29 +92,31 @@
         $recieve = mysqli_query($db_connection, $query);
         $outputs = mysqli_fetch_all($recieve, MYSQLI_ASSOC);
 
-        if($outputs) {
-            echo "<h1>Registered Users</h1>";
-            echo "<table>
+        if($outputs) { ?>
+            <h1>Registered Users</h1>
+            <table>
                     <tr>
                         <th>Name</th>
                         <th>Gender</th>
                         <th>Email</th>
                         <th>Role</th>
                         <th>Action</th>
-                    </tr>";
-            foreach ($outputs as $output) {
-                echo "<tr>
-                        <td>" . htmlspecialchars($output["name"]) . "</td>
-                        <td>" . htmlspecialchars($output["gender"]) . "</td>
-                        <td>" . htmlspecialchars($output["email"]) . "</td>
-                        <td>" . htmlspecialchars($output["rule"]) . "</td>
-                        <td><a class='delete-btn' href='serveDelete.php?email=" . urlencode($output['email']) . "'>Delete</a></td>
-                      </tr>";
-            }
-            echo "</table>";
-        } else {
-            echo "<p>There are no other registered users in the system.</p>";
-        }
+                    </tr>
+          <?php  foreach ($outputs as $output) {?>
+                <tr>
+                        <td><?php echo htmlspecialchars($output["name"]) ?></td>
+                        <td><?php echo htmlspecialchars($output["gender"]) ?></td>
+                        <td><?php echo htmlspecialchars($output["email"]) ?></td>
+                        <td><?php echo htmlspecialchars($output["rule"]) ?></td>
+                        <td>
+                            <a class='delete-btn' href='serveDelete.php?email=<?php echo urlencode($output["email"]); ?>'>Delete</a>
+                        </td>
+                      </tr>
+           <?php }?>
+            </table>
+       <?php } else { ?>
+            <p>There are no other registered users in the system.</p>
+        <?php }
 
         mysqli_free_result($recieve);
     }

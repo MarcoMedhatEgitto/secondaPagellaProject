@@ -79,21 +79,21 @@ mysqli_free_result($recieve);
         <button><a href="Promote.php">Promote a user</a></button>
         <button><a href="Booking.php">Book a doctor</a></button>
         <button><a href="availability.php">Add availability</a></button>
+        <button><a href="bookTable.php">Show booking table</a></button>
     </div>
 <?php endif ?>
 <?php if (isset($_SESSION['email']) && $_SESSION['rule'] == 'user'):?>
   <div class="button-container">
         <button><a href="Logout.php">Log out</a></button>
         <button><a href="Booking.php">Book a doctor</a></button>
+        <button><a href="bookTable.php">Show booking table</a></button>
     </div>  
 <?php endif ?>
 <?php if (isset($_SESSION['email']) && $_SESSION['rule'] == 'doctor'):?>
   <div class="button-container">
         <button><a href="Logout.php">Log out</a></button>
         <button><a href="availability.php">Add availability</a></button>
-        <?php
-        //TODO: add a table to show the bookings for this doctor.
-        ?>
+        <button><a href="bookTable.php">Show booking table</a></button>
     </div>  
 <?php endif ?>
 </body>

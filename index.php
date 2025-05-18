@@ -52,7 +52,7 @@ session_start();
     </style>
 </head>
 <body>
-    <h1>Welcome to the Health Center</h1>
+    <h1>Welcome to the Physical Therapy Clinic</h1>
 
     <div class="button-group">
     <?php if (!isset($_SESSION['email'])): ?>

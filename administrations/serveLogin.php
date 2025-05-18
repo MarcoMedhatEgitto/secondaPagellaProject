@@ -19,13 +19,14 @@ if($output == null){
 else if(password_verify($user_pssword, $output[0]['user_password'])){
     session_start();
     
-    $query = "SELECT rule FROM user_data WHERE email = '$email'";
+    $query = "SELECT id, rule FROM user_data WHERE email = '$email'";
     $recieve = mysqli_query($db_connection, $query);
     $output = mysqli_fetch_all($recieve, MYSQLI_ASSOC);
     mysqli_free_result($recieve);
 
     $_SESSION['email'] = $email;
     $_SESSION['rule'] = $output[0]['rule'];
+    $_SESSION['id'] = $output[0]['id'];
     header("Location: Dashboard.php");
 }
 else{
