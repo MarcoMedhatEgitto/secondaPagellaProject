@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Delete</title>
+    <link rel="stylesheet" href="/secondaPagellaProject/styles.css">
 </head>
 <body>
     <form action="serveDelete.php" method="post">
