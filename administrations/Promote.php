@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Promote</title>
+<<<<<<< Updated upstream
     <link rel="stylesheet" href="/secondaPagellaProject/styles.css">
+=======
+    <link rel="stylesheet" href="/SecondaPagellProject/styles.css">
+
+>>>>>>> Stashed changes
 </head>
 <body>
     <?php

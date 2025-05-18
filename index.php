@@ -6,7 +6,11 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <title>Health Center!</title>
+<<<<<<< Updated upstream
     <link rel="stylesheet" href="/secondaPagellaProject/styles.css">
+=======
+    <link rel="stylesheet" href="/SecondaPagellProject/styles.css">
+>>>>>>> Stashed changes
 </head>
 <body>
     <h1>Welcome to the Physical Therapy Clinic</h1>

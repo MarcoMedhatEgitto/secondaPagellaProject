@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
+<<<<<<< Updated upstream
     <link rel="stylesheet" href="/secondaPagellaProject/styles.css">
+=======
+    <link rel="stylesheet" href="/SecondaPagellProject/styles.css">
+>>>>>>> Stashed changes
 </head>
 <body class="light-mode">
     <div class="container">
