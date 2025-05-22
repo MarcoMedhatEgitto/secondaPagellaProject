@@ -1,4 +1,5 @@
 <?php
+include 'authorization.php';
 include 'db_connection.php';
 
 if(isset($_GET['email'])){

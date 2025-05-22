@@ -79,8 +79,8 @@
 </head>
 <body>
 <?php
-    include 'db_connection.php';
-    session_start();
+    include 'authorization.php';
+    include '../db_connection.php';
     $email = $_SESSION['email'];
     $query ="SELECT name, rule FROM user_data WHERE email = '$email'" ;
     $recieve = mysqli_query($db_connection,$query); 
@@ -122,6 +122,6 @@
     }
     mysqli_close($db_connection);
 ?>
-    <a href="Dashboard.php" class="home-btn">Back to Dashboard</a>
+    <a href="list.php" class="home-btn">Back to Dashboard</a>
 </body>
 </html>

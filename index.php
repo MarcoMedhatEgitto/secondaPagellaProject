@@ -57,22 +57,22 @@ session_start();
     <div class="button-group">
     <?php if (!isset($_SESSION['email'])): ?>
         <button>
-            <a href="administrations/Register.php">Register</a>
+            <a href="folders/Register.php">Register</a>
         </button>
         <button>
-            <a href="administrations/Login.php">Log in</a>
+            <a href="folders/Login.php">Log in</a>
         </button>
     <?php endif; ?>
 
     <?php if (isset($_SESSION['email']) && $_SESSION['rule'] === 'user'): ?>
         <button>
-            <a href="administrations/Dashboard.php">Dashboard</a>
+            <a href="folders/Dashboard.php">Dashboard</a>
         </button>
         <button>
-            <a href="administrations/Logout.php">Log out</a>
+            <a href="folders/Logout.php">Log out</a>
         </button>
         <button>
-            <a href="administrations/makeRiservation">Reserve</a>
+            <a href="folders/makeRiservation">Reserve</a>
         </button>
     <?php endif; ?>
     </div>

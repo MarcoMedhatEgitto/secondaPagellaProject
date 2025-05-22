@@ -1,5 +1,5 @@
 <?php
-session_start();
+include 'authorization.php';
 if (!isset($_SESSION['email'])) {
     header("Location: Login.php");
 }
@@ -72,29 +72,13 @@ mysqli_free_result($recieve);
 ?>
 <h1><?php echo "Welcome " . htmlspecialchars($output[0]['name']); ?></h1>
 
-<?php if (isset($_SESSION['email']) && $_SESSION['rule'] == 'admin'): ?>
     <div class="button-container">
-        <button><a href="Delete.php">Delete</a></button>
-        <button><a href="Logout.php">Log out</a></button>
-        <button><a href="Promote.php">Promote a user</a></button>
-        <button><a href="Booking.php">Book a doctor</a></button>
+        <button><a href="Delete.php">Delete a user</a></button>
+        <button><a href="../Logout.php">Log out</a></button>
+        <button><a href="approve.php">approve a doctor</a></button> <!-- TODO: make the admin approve only the doctors not promote and demote -->
+        <button><a href="Booking.php">Book a doctor</a></button> <!-- TODO: make the admin book for users not himself -->
         <button><a href="availability.php">Add availability</a></button>
-        <button><a href="bookTable.php">Show booking table</a></button>
+        <button><a href="riservationTable.php">Show booking table</a></button>
     </div>
-<?php endif ?>
-<?php if (isset($_SESSION['email']) && $_SESSION['rule'] == 'user'):?>
-  <div class="button-container">
-        <button><a href="Logout.php">Log out</a></button>
-        <button><a href="Booking.php">Book a doctor</a></button>
-        <button><a href="bookTable.php">Show booking table</a></button>
-    </div>  
-<?php endif ?>
-<?php if (isset($_SESSION['email']) && $_SESSION['rule'] == 'doctor'):?>
-  <div class="button-container">
-        <button><a href="Logout.php">Log out</a></button>
-        <button><a href="availability.php">Add availability</a></button>
-        <button><a href="bookTable.php">Show booking table</a></button>
-    </div>  
-<?php endif ?>
 </body>
 </html>

@@ -75,27 +75,12 @@ $results = mysqli_fetch_all($output, MYSQLI_ASSOC);?>
 <body>
     <form action="availability.php" method="post">
         <h2>Set Doctor Availability</h2>
-
-        <label for="date">Date & Time</label>
-        <input type="datetime-local" name="date" required>
-        <?php if (isset($_SESSION['email']) && ($_SESSION['rule'] == 'admin')):?>
-        <label for="doctor">Doctor</label>
-        <select name="doctor" required>
-            <option value="" disabled selected>Select a doctor</option>
-            <?php foreach($results as $result): ?>
-                <option value="<?php echo htmlspecialchars($result['id']); ?>">
-                    <?php echo htmlspecialchars($result['email']); ?>
-                </option>
-            <?php endforeach; ?>
-        </select>
-        <?php endif; ?>
         <?php if (isset($_SESSION['email']) && ($_SESSION['rule'] == 'doctor')):?>
         <label for="doctor">Doctor</label>
         <select name="doctor" required>
                 <option value="<?php echo $_SESSION['id']; ?>"><?php echo $_SESSION['email']; ?></option>
         </select>
         <?php endif ?>
-
         <input type="submit" value="submit" name="submit">
     </form>
 </body>
