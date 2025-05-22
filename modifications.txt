@@ -1,0 +1,8 @@
+- flashers.(messages from the operations if done well or not).
+- change the id requests in post.(in delete and book).
+- confirm risevation.
+- modify dashboard.
+- secure the pages(revise the session management).
+(create the file and include it in every start of a page, consult admin "Authorization for details")
+- modify the files and make each role in a folder(done for the admin do the same for the rest of them)
+- revise the tabes and alter the tables to add confermations and payment condition in bookig.
