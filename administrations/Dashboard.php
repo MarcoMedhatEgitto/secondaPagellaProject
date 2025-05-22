@@ -10,56 +10,7 @@ if (!isset($_SESSION['email'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f6f8;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding-top: 50px;
-            margin: 0;
-        }
-
-        h1 {
-            color: #333;
-            margin-bottom: 30px;
-        }
-
-        .button-container {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            width: 250px;
-        }
-
-        a {
-            text-decoration: none;
-            color: white;
-        }
-
-        button {
-            background-color: #007BFF;
-            border: none;
-            padding: 12px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s ease;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-
-        button a {
-            color: white;
-            display: block;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-        }
-    </style>
+    <link rel="stylesheet" href="/secondaPagellaProject/styles.css">
 </head>
 <body>
 <?php
