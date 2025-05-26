@@ -1,0 +1,123 @@
+[
+    {
+        "id": 1,
+        "username": "alice",
+        "password": "$2b$12$C5wEW38oz3ztpgUCg7YO4.lDhWswip5t1D7q7Oi.9ORiRlJ7BbSym",
+        "role": "patient"
+    },
+    {
+        "id": 2,
+        "username": "bob",
+        "password": "$2b$12$C5wEW38oz3ztpgUCg7YO4.lDhWswip5t1D7q7Oi.9ORiRlJ7BbSym",
+        "role": "patient"
+    },
+    {
+        "id": 3,
+        "username": "carol",
+        "password": "$2b$12$C5wEW38oz3ztpgUCg7YO4.lDhWswip5t1D7q7Oi.9ORiRlJ7BbSym",
+        "role": "patient"
+    },
+    {
+        "id": 4,
+        "username": "dave",
+        "password": "$2b$12$C5wEW38oz3ztpgUCg7YO4.lDhWswip5t1D7q7Oi.9ORiRlJ7BbSym",
+        "role": "patient"
+    },
+    {
+        "id": 5,
+        "username": "eve",
+        "password": "$2b$12$C5wEW38oz3ztpgUCg7YO4.lDhWswip5t1D7q7Oi.9ORiRlJ7BbSym",
+        "role": "patient"
+    },
+    {
+        "id": 6,
+        "username": "frank",
+        "password": "$2b$12$C5wEW38oz3ztpgUCg7YO4.lDhWswip5t1D7q7Oi.9ORiRlJ7BbSym",
+        "role": "patient"
+    },
+    {
+        "id": 7,
+        "username": "grace",
+        "password": "$2b$12$C5wEW38oz3ztpgUCg7YO4.lDhWswip5t1D7q7Oi.9ORiRlJ7BbSym",
+        "role": "patient"
+    },
+    {
+        "id": 8,
+        "username": "doc1",
+        "password": "$2b$12$C5wEW38oz3ztpgUCg7YO4.lDhWswip5t1D7q7Oi.9ORiRlJ7BbSym",
+        "role": "doctor"
+    },
+    {
+        "id": 9,
+        "username": "doc2",
+        "password": "$2b$12$C5wEW38oz3ztpgUCg7YO4.lDhWswip5t1D7q7Oi.9ORiRlJ7BbSym",
+        "role": "doctor"
+    },
+    {
+        "id": 10,
+        "username": "doc3",
+        "password": "$2b$12$C5wEW38oz3ztpgUCg7YO4.lDhWswip5t1D7q7Oi.9ORiRlJ7BbSym",
+        "role": "doctor"
+    },
+    {
+        "id": 11,
+        "username": "admin1",
+        "password": "$2b$12$C5wEW38oz3ztpgUCg7YO4.lDhWswip5t1D7q7Oi.9ORiRlJ7BbSym",
+        "role": "admin"
+    },
+    {
+        "id": 12,
+        "username": "admin2",
+        "password": "$2b$12$C5wEW38oz3ztpgUCg7YO4.lDhWswip5t1D7q7Oi.9ORiRlJ7BbSym",
+        "role": "admin"
+    },
+    {
+        "id": 13,
+        "username": "baba",
+        "password": "$2y$10$SSrQRxOGnEtsKANk0y2WU.Psy4mXYsjAawn4OXDIYr\/dU6KvZWD82",
+        "role": "admin",
+        "approved": false
+    },
+    {
+        "id": 14,
+        "username": "ana",
+        "password": "$2y$10$TGUePUux5Wt8jRJYBKnpsOZvN8N0a9.\/aqZuYmIsxTxsbALj56dXO",
+        "role": "admin",
+        "approved": false
+    },
+    {
+        "id": 15,
+        "username": "koko",
+        "password": "$2y$10$yaCv91u13aQbC\/D\/J5nU7.AB6E0lCb0.qCCjLHEpyHUFF6Ag9ZfLG",
+        "role": "patient",
+        "approved": true
+    },
+    {
+        "id": 16,
+        "username": "barco bed7at",
+        "password": "$2y$10$tdQUHjfXkgQHKIJEce4Es.1eJ2OAFFsn9UAyFbKLEOdGBwVb9U1L.",
+        "role": "patient",
+        "approved": true
+    },
+    {
+        "id": 17,
+        "username": "7a7a",
+        "password": "$2y$10$zhBELsOsaOn5uLEPRnpaYeGNDpwxzyWaKz5AwidZ\/7d8JpLrY64CG",
+        "role": "patient",
+        "approved": true
+    },
+    {
+        "id": 18,
+        "username": "mm",
+        "password": "$2y$10$pm1LOjBpvszvnBihi0b\/e.gyf0VJAAcA7RjqYa8P1KuNScyqORRvm",
+        "role": "patient",
+        "approved": true
+    },
+    {
+        "id": 19,
+        "username": "zeno",
+        "password": "$2y$10$YxqTGGcaR7l7lteTQfADI.H4mCdNMjri..GCzt5FiQ2oWYintyeLm",
+        "role": "patient",
+        "approved": true
+    }
+]

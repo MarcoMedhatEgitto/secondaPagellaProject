@@ -1,0 +1,51 @@
+[
+    {
+        "id": 1748152668,
+        "patient_id": "2",
+        "doctor_id": 8,
+        "scheduled_time": "2025-05-25T08:58",
+        "duration_minutes": 120
+    },
+    {
+        "id": 1748152822,
+        "patient_id": "2",
+        "doctor_id": 8,
+        "scheduled_time": "2025-05-25T00:00",
+        "duration_minutes": 60
+    },
+    {
+        "id": 1748153742,
+        "patient_id": "2",
+        "doctor_id": 9,
+        "scheduled_time": "2025-05-26T09:16",
+        "duration_minutes": 30
+    },
+    {
+        "id": 1748154539,
+        "patient_id": "2",
+        "doctor_id": 10,
+        "scheduled_time": "2025-05-25T09:29",
+        "duration_minutes": 90
+    },
+    {
+        "id": 1748157135,
+        "patient_id": "3",
+        "doctor_id": 9,
+        "scheduled_time": "2025-05-25T10:12",
+        "duration_minutes": 45
+    },
+    {
+        "id": 1748182223,
+        "patient_id": "2",
+        "doctor_id": 8,
+        "scheduled_time": "2025-05-25T19:27",
+        "duration_minutes": 45
+    },
+    {
+        "id": 1748182278,
+        "patient_id": "17",
+        "doctor_id": 8,
+        "scheduled_time": "2025-05-26T08:11",
+        "duration_minutes": 45
+    }
+]
