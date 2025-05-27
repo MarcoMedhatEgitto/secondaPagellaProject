@@ -1,19 +1,17 @@
 <?php
-include 'db_connection.php';
-
-session_start();
-if(isset($_GET['patient_data']))
+    include 'authorization.php';
+    include '../db_connection.php';
+    if(isset($_POST['patient_data']))
 {
-  $patient_data = $_GET["patient_data"];
-  $doctor_data = $_GET["doctor_data"];
-  $date_time = $_GET["date_time"];
+  $patient_data = $_POST["patient_data"];
+  $doctor_data = $_POST["doctor_data"];
+  $date_time = $_POST["date_time"];
   $sql = "INSERT INTO booked(patient_data, doctor_data, date_time)
           VALUES('$patient_data','$doctor_data','$date_time')";
   $sql2 ="DELETE FROM available WHERE doctor = $doctor_data AND date_time = '$date_time'";
   $query1 = mysqli_query($db_connection, $sql);
   $query1 = mysqli_query($db_connection, $sql2);
 }
-
 $sql = "SELECT user_data.id, name, email, date_time 
         FROM  available
         LEFT JOIN user_data ON available.doctor = user_data.id";
@@ -23,202 +21,203 @@ mysqli_free_result($output);
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Book a doctor</title>
-         <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f6f9;
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
 
-        h1 {
-            color: #333;
-        }
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-        table {
-            width: 90%;
-            max-width: 900px;
-            border-collapse: collapse;
-            background-color: white;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
-        }
+    <title>PT</title>
 
-        th, td {
-            padding: 12px 16px;
-            text-align: center;
-            border: 1px solid #ddd;
-        }
+    <!-- Custom fonts for this template -->
+    <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
 
-        th {
-            background-color: #007BFF;
-            color: white;
-        }
+    <!-- Custom styles for this template -->
+    <link href="../css/sb-admin-2.min.css" rel="stylesheet">
 
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
+    <!-- Custom styles for this page -->
+    <link href="../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
-        tr:hover {  
-            background-color: #f1f1f1;
-        }
-
-        .action-btn {
-            padding: 8px 14px;
-            border: none;
-            background-color: #17a2b8;
-            color: white;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 14px;
-            transition: background-color 0.3s ease;
-        }
-
-        .action-btn:hover {
-            background-color: #138496;
-        }
-
-        .home-btn {
-            padding: 10px 20px;
-            background-color: #6c757d;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 15px;
-            transition: background-color 0.3s ease;
-        }
-
-        .home-btn:hover {
-            background-color: #5a6268;
-        }
-
-        p {
-            font-size: 16px;
-            color: #555;
-        }
-
-        @media (max-width: 600px) {
-            table, th, td {
-                font-size: 12px;
-            }
-
-            .action-btn, .home-btn {
-                font-size: 12px;
-                padding: 6px 10px;
-            }
-        }
-        .man {
-  position: relative;
-  width: 100px;
-  height: 200px;
-  margin: 50px auto;
-}
-
-.head {
-  width: 40px;
-  height: 40px;
-  background-color: #f0c27b;
-  border-radius: 50%;
-  position: absolute;
-  top: 0;
-  left: 30px;
-}
-
-.body {
-  width: 20px;
-  height: 70px;
-  background-color: #333;
-  position: absolute;
-  top: 40px;
-  left: 40px;
-  border-radius: 30%;
-
-}
-
-.left-arm,
-.right-arm {
-  width: 10px;
-  height: 60px;
-  background-color: #444;
-  position: absolute;
-  top: 45px;
-  border-radius: 30%;
-}
-
-.left-arm {
-  transform: rotate(45deg);
-  left: 10px;
-}
-
-.right-arm {
-  transform: rotate(-45deg);
-  left: 80px;
-}
-
-.left-leg,
-.right-leg {
-  width: 10px;
-  height: 60px;
-  background-color: #444;
-  position: absolute;
-  top: 110px;
-  border-radius: 30%;
-
-}
-
-.left-leg {
-  left: 30px;
-  transform: rotate(10deg);
-}
-
-.right-leg {
-  left: 60px;
-  transform: rotate(-10deg);
-}
-    </style>
 </head>
-<body>
-      <h1>Book Here</h1>
-    <?php if($results != null) {?>
-            <table>
-                    <tr>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-laugh-wink"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3">User Dashboard</div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item">
+                <a class="nav-link" href="../Logout.php">
+                    <span>Logout</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            
+            <li class="nav-item">
+                <a class="nav-link" href="userBooking.php">
+                    <span>Book a doctor</span></a>
+            </li>
+            <hr class="sidebar-divider">
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Monitor riservations
+            </div>     
+            <li class="nav-item">
+                <a class="nav-link" href="userTable.php">
+                    <span>Table</span></a>
+            </li>
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <?php echo $_SESSION['email']?>
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION['name']?></span>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Booking</h1>
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Doctor's availabiity</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                       <tr>
                         <th>Name</th>
                         <th>Email</th>
                         <th>Date</th>
                         <th>Book</th>
                     </tr>
-          <?php  foreach ($results as $result) {?>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Date</th>
+                        <th>Book</th>
+                    </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        
+<?php  foreach ($results as $result) {?>
                 <tr>
                         <td><?php echo htmlspecialchars($result["name"]) ?></td>
                         <td><?php echo htmlspecialchars($result["email"]) ?></td>
                         <td><?php echo htmlspecialchars($result["date_time"]) ?></td>
                         <td>
-                         <a class='action-btn' href='Booking.php?patient_data=<?php echo urlencode($_SESSION['id'])?>&doctor_data=<?php echo urlencode($result["id"])?>&date_time=<?php echo urlencode($result["date_time"])?>'>
-                                Book
-                        </a>
+                         <form action="userBooking.php" method="post" style="display:inline;">
+    <input type="hidden" name="patient_data" value="<?php echo htmlspecialchars($_SESSION['id']); ?>">
+    <input type="hidden" name="doctor_data" value="<?php echo htmlspecialchars($result['id']); ?>">
+    <input type="hidden" name="date_time" value="<?php echo htmlspecialchars($result['date_time']); ?>">
+    <button type="submit" class="btn btn-primary" onclick = "return confirm('you have booked this session')">Book</button>
+</form>
+
                         </td>
                 </tr>
             <?php } ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
 
-            </table>;
-       <?php } else { ?>
-            <p>There are no normal users registered in the system.</p>
-       <?php }
+                </div>
+                <!-- /.container-fluid -->
 
+            </div>
+            <!-- End of Main Content -->
 
-    mysqli_close($db_connection);
-    ?>
-    <a class="home-btn" href="Dashboard.php">Back to Dashboard</a>
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; PT center</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/datatables-demo.js"></script>
+
 </body>
-</html>
 
+</html>
 

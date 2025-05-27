@@ -19,15 +19,26 @@ if($output == null){
 else if(password_verify($user_pssword, $output[0]['user_password'])){
     session_start();
     
-    $query = "SELECT id, rule FROM user_data WHERE email = '$email'";
+    $query = "SELECT id, name, rule FROM user_data WHERE email = '$email'";
     $recieve = mysqli_query($db_connection, $query);
     $output = mysqli_fetch_all($recieve, MYSQLI_ASSOC);
     mysqli_free_result($recieve);
-
+    $_SESSION['name'] = $output[0]['name'];
     $_SESSION['email'] = $email;
     $_SESSION['rule'] = $output[0]['rule'];
     $_SESSION['id'] = $output[0]['id'];
-    header("Location: Dashboard.php");
+    if($_SESSION['rule']=='admin')
+    {
+    header("Location: admin/Booking.php");
+    }
+    if($_SESSION['rule']=='doctor')
+    {
+    header("Location: doctor/doctorTable.php");
+    }
+    if($_SESSION['rule']=='user')
+    {
+    header("Location: user/userBooking.php");
+    }
 }
 else{
     echo "You have entered a wrong password!";
