@@ -113,6 +113,11 @@ input[type="submit"]:hover {
             <label><input type="radio" name="gender" value="female" required> Female</label>
         </div>
         <div>
+            <label for="user_doctor">User/Doctor</label>
+            <label><input type="radio" name="user_doctor" value="user" required> User</label>
+            <label><input type="radio" name="user_doctor" value="doctor" required> Doctor</label>
+        </div>
+        <div>
             <label for="phone">phone</label>
             <input type="tel" name="phone" required>
         </div>

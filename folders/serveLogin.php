@@ -19,7 +19,7 @@ if($output == null){
 else if(password_verify($user_pssword, $output[0]['user_password'])){
     session_start();
     
-    $query = "SELECT id, name, rule FROM user_data WHERE email = '$email'";
+    $query = "SELECT id, confirmed, name, rule FROM user_data WHERE email = '$email'";
     $recieve = mysqli_query($db_connection, $query);
     $output = mysqli_fetch_all($recieve, MYSQLI_ASSOC);
     mysqli_free_result($recieve);
@@ -27,6 +27,9 @@ else if(password_verify($user_pssword, $output[0]['user_password'])){
     $_SESSION['email'] = $email;
     $_SESSION['rule'] = $output[0]['rule'];
     $_SESSION['id'] = $output[0]['id'];
+    if($output[0]['confirmed']=='confirmed')
+    {
+
     if($_SESSION['rule']=='admin')
     {
     header("Location: admin/Booking.php");
@@ -39,9 +42,13 @@ else if(password_verify($user_pssword, $output[0]['user_password'])){
     {
     header("Location: user/userBooking.php");
     }
-}
-else{
+    else{
     echo "You have entered a wrong password!";
+}
+}
+    else{
+        echo "your account is not confirmed yet as a doctor";
+    }
 }
 }
 mysqli_close($db_connection);

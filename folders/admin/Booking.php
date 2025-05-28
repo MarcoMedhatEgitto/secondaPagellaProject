@@ -16,8 +16,12 @@ $sql = "SELECT user_data.id, name, email, date_time
         FROM  available
         LEFT JOIN user_data ON available.doctor = user_data.id";
 $output = mysqli_query($db_connection, $sql);
+$sql2 = "SELECT id, email FROM user_data WHERE rule = 'user'";
+$output2 = mysqli_query($db_connection, $sql2);
 $results = mysqli_fetch_all($output, MYSQLI_ASSOC);
+$results2 = mysqli_fetch_all($output2, MYSQLI_ASSOC);
 mysqli_free_result($output);
+mysqli_free_result($output2);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +34,7 @@ mysqli_free_result($output);
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Tables</title>
+    <title>PT</title>
 
     <!-- Custom fonts for this template -->
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -159,8 +163,9 @@ mysqli_free_result($output);
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
-                                       <tr>
-                        <th>Name</th>
+                                    <tr>
+                        <th>Patient</th>
+                        <th>Doctor</th>
                         <th>Email</th>
                         <th>Date</th>
                         <th>Book</th>
@@ -168,7 +173,8 @@ mysqli_free_result($output);
                                     </thead>
                                     <tfoot>
                                         <tr>
-                        <th>Name</th>
+                        <th>Patient</th>
+                        <th>Doctor</th>
                         <th>Email</th>
                         <th>Date</th>
                         <th>Book</th>
@@ -178,12 +184,22 @@ mysqli_free_result($output);
                                         
 <?php  foreach ($results as $result) {?>
                 <tr>
+                    <form action="Booking.php" method="post" style="display:inline;">
+                        <td>
+                             <select name="patient_data" required>
+            <option value="" disabled selected>Select a doctor</option>
+            <?php foreach($results2 as $result2): ?>
+                <option value="<?php echo htmlspecialchars($result2['id']); ?>">
+                    <?php echo htmlspecialchars($result2['email']); ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+                        </td>
                         <td><?php echo htmlspecialchars($result["name"]) ?></td>
                         <td><?php echo htmlspecialchars($result["email"]) ?></td>
                         <td><?php echo htmlspecialchars($result["date_time"]) ?></td>
                         <td>
-                         <form action="Booking.php" method="post" style="display:inline;">
-    <input type="hidden" name="patient_data" value="<?php echo htmlspecialchars($_SESSION['id']); ?>">
+                         
     <input type="hidden" name="doctor_data" value="<?php echo htmlspecialchars($result['id']); ?>">
     <input type="hidden" name="date_time" value="<?php echo htmlspecialchars($result['date_time']); ?>">
     <button type="submit" class="btn btn-primary" onclick = "return confirm('you have booked this session')">Book</button>

@@ -10,10 +10,16 @@ if(isset($_POST['submit'])){
     $email = mysqli_real_escape_string($db_connection, $_POST['email']);
     $password = mysqli_real_escape_string($db_connection,password_hash($_POST['password'],PASSWORD_DEFAULT));
     $gender = mysqli_real_escape_string($db_connection, $_POST['gender']);
+    $user_doctor = mysqli_real_escape_string($db_connection, $_POST['user_doctor']);
     $phone = mysqli_real_escape_string($db_connection,$_POST['phone']);
 
-    $query = "INSERT INTO user_data(id, name, user_password, email, gender, rule, phone_number) VALUES ('','$name','$password','$email','$gender','user','$phone')";
-
+    if($user_doctor=="user")
+    {
+    $query = "INSERT INTO user_data(id, name, user_password, email, gender, rule, confirmed, phone_number) VALUES ('','$name','$password','$email','$gender','user', 'confirmed','$phone')";
+    }
+    else{
+    $query = "INSERT INTO user_data(id, name, user_password, email, gender, rule, confirmed,phone_number) VALUES ('','$name','$password','$email','$gender','user', 'not', '$phone')";
+    }
     if(mysqli_query($db_connection,$query)){
        $_SESSION['flash'] = "Registration successful! Please login.";
     }
