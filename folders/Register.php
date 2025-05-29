@@ -100,12 +100,12 @@ input[type="submit"]:hover {
             <input type="text" id="name" name="name" required>
         </div>
         <div>
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password" required>
-        </div>
-        <div>
             <label for="email">Email</label>
             <input type="email" placeholder="example@dr.kareem.com" name="email" required>
+        </div>
+         <div>
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" required>
         </div>
         <div>
             <label for="gender">Gender</label>
@@ -118,8 +118,12 @@ input[type="submit"]:hover {
             <label><input type="radio" name="user_doctor" value="doctor" required> Doctor</label>
         </div>
         <div>
-            <label for="phone">phone</label>
+            <label for="phone">Phone</label>
             <input type="tel" name="phone" required>
+        </div>
+        <div>
+            <label for="description">Description</label>
+            <textarea name="description" required>Write your description here</textarea>
         </div>
         <input type="submit" value="Submit" name="submit">
         <p>Already have an account? <a href="Login.php">Log in here</a></p>

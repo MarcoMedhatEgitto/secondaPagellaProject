@@ -11,11 +11,14 @@ if(isset($_POST['id'])){
 }
     $sql = "SELECT b.id,
             p.name AS patient_name,
+            p.phone_number AS patient_number,
+            d.phone_number As doctor_number,
             d.name AS doctor_name,
             b.date_time
             FROM booked b
             INNER JOIN user_data p ON p.id = b.patient_data
-            INNER JOIN user_data d ON d.id = b.doctor_data";
+            INNER JOIN user_data d ON d.id = b.doctor_data
+            ORDER BY b.date_time";
 $query = mysqli_query($db_connection, $sql);
 $result = mysqli_fetch_all($query, MYSQLI_ASSOC);
 
@@ -83,7 +86,7 @@ $result = mysqli_fetch_all($query, MYSQLI_ASSOC);
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link" href="Delete.php">
-                    <span>Delete Users</span></a>
+                    <span>Users</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="Booking.php">
@@ -162,7 +165,9 @@ $result = mysqli_fetch_all($query, MYSQLI_ASSOC);
                                     <thead>
                                        <tr>
             <th>Patient Name</th>
+            <th>Patient Phone</th>
             <th>Doctor Name</th>
+            <th>Doctor Phone</th>
             <th>Date & Time</th>
             <th>Action</th>
         </tr>
@@ -170,7 +175,9 @@ $result = mysqli_fetch_all($query, MYSQLI_ASSOC);
                                     <tfoot>
                                         <tr>
             <th>Patient Name</th>
+            <th>Patient Phone</th>
             <th>Doctor Name</th>
+            <th>Doctor Phone</th>
             <th>Date & Time</th>
             <th>Action</th>
         </tr>
@@ -180,7 +187,9 @@ $result = mysqli_fetch_all($query, MYSQLI_ASSOC);
             foreach ($result as $row) { ?>
                 <tr>
                     <td><?php echo htmlspecialchars($row['patient_name']); ?></td>
+                    <td><?php echo htmlspecialchars($row['patient_number']); ?></td>
                     <td><?php echo htmlspecialchars($row['doctor_name']); ?></td>
+                    <td><?php echo htmlspecialchars($row['doctor_number']); ?></td>
                     <td><?php echo htmlspecialchars($row['date_time']); ?></td>
                      <td>
                         <form method="post" action="riservationTable.php" onsubmit="return confirm('Are you sure you want to delete this booking?');">

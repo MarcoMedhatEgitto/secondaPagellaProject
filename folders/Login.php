@@ -3,7 +3,7 @@ session_start();
 $flashMessage = null;
 if (isset($_SESSION['flash'])) {
     $flashMessage = $_SESSION['flash'];
-    unset($_SESSION['flash']); // Remove after showing
+    unset($_SESSION['flash']);
 }
 ?>
 <!DOCTYPE html>
@@ -12,7 +12,6 @@ if (isset($_SESSION['flash'])) {
     <meta charset="UTF-8">
     <title>Login</title>
     <style>
-        /* Reset some default styles */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -28,7 +27,6 @@ body {
     height: 100vh;
 }
 
-/* Form container */
 form {
     background-color: white;
     padding: 40px 30px;
@@ -44,7 +42,6 @@ form h2 {
     color: #333;
 }
 
-/* Form labels and inputs */
 label {
     display: block;
     margin-bottom: 8px;

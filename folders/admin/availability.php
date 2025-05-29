@@ -141,7 +141,7 @@ h2 {
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link" href="Delete.php">
-                    <span>Delete Users</span></a>
+                    <span>Users</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="Booking.php">

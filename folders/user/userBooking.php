@@ -12,7 +12,7 @@
   $query1 = mysqli_query($db_connection, $sql);
   $query1 = mysqli_query($db_connection, $sql2);
 }
-$sql = "SELECT user_data.id, name, email, date_time 
+$sql = "SELECT user_data.id, name, email, date_time, description 
         FROM  available
         LEFT JOIN user_data ON available.doctor = user_data.id";
 $output = mysqli_query($db_connection, $sql);
@@ -153,7 +153,9 @@ mysqli_free_result($output);
                                         
 <?php  foreach ($results as $result) {?>
                 <tr>
-                        <td><?php echo htmlspecialchars($result["name"]) ?></td>
+                        <td><?php echo htmlspecialchars($result["name"]). " "; ?>
+                    <a href="#" data-toggle="tooltip" class="btn btn-info btn-sm" data-placement="top" title="<?php echo $result['description'];?>">i</a>
+                    </td>
                         <td><?php echo htmlspecialchars($result["email"]) ?></td>
                         <td><?php echo htmlspecialchars($result["date_time"]) ?></td>
                         <td>
@@ -216,7 +218,11 @@ mysqli_free_result($output);
 
     <!-- Page level custom scripts -->
     <script src="js/demo/datatables-demo.js"></script>
-
+<script>
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
 </body>
 
 </html>
