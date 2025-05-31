@@ -6,7 +6,6 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <title>Health Center!</title>
-<<<<<<< HEAD
     <style>
         body {
     background: linear-gradient(to right, #6a11cb, #2575fc);
@@ -58,9 +57,7 @@ h1 {
 }
 
     </style>
-=======
     <link rel="stylesheet" href="/secondaPagellaProject/styles.css">
->>>>>>> 167ebddc8512ddb969b5e8807be76cc6a371ac6f
 </head>
 <body>
     <h1>Welcome to the Physical Therapy Clinic</h1>
@@ -68,25 +65,16 @@ h1 {
     <div class="button-group">
     <?php if (!isset($_SESSION['email'])): ?>
         <button>
-<<<<<<< HEAD
             <a href="folders/Register.php">Register</a>
         </button>
         <button>
             <a href="folders/Login.php">Log in</a>
-=======
-            <a href="/administrations/Register.php">Register</a>
-        </button>
-        <button>
-            <a href="/administrations/Login.php">Log in</a>
->>>>>>> 167ebddc8512ddb969b5e8807be76cc6a371ac6f
         </button>
     <?php endif; ?>
 
     <?php if (isset($_SESSION['email'])): ?>
         <button>
-<<<<<<< HEAD
             <a href="folders/Logout.php">Log in</a>
-=======
             <a href="/administrations/Dashboard.php">Dashboard</a>
         </button>
         <button>
@@ -94,7 +82,6 @@ h1 {
         </button>
         <button>
             <a href="/administrations/makeRiservation">Reserve</a>
->>>>>>> 167ebddc8512ddb969b5e8807be76cc6a371ac6f
         </button>
     <?php endif; ?>
     </div>
